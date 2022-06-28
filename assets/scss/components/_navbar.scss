@@ -1,0 +1,11 @@
+@use '../../edit' as *;
+.pge {
+    padding: 1em;
+    .dropdown-item {
+        box-sizing: border-box;
+        font-size: .918rem;
+        padding: 1em;
+        text-transform: capitalize;
+    }
+    
+}
