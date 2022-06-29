@@ -1,0 +1,28 @@
+@use "../utilities" as *;
+@use "../globals/color" as *;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto 0 auto;
+  @include breakpoint(large) {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  &-row,
+  &-col {
+    padding: 55px;
+  }
+  &-row {
+    background-color: $rose;
+    @include breakpoints(largexm) {
+      background-color: $fuchsia;
+    }
+  }
+
+  &-col {
+    background-color: $indigo;
+  }
+}

@@ -1,0 +1,25 @@
+// color
+$emerald: #22c55e;
+$Teal: #0f766e;
+$sky: #0284c7;
+$Cyan: #0891b2;
+$indigo: #4338ca;
+$violet: #7c3aed;
+$fuchsia: #a21caf;
+$rose: #be123c;
+
+$colors: (
+  "Emerald": $emerald,
+  "Teal": $Teal,
+  "sky": $sky,
+  "cyan": $Cyan,
+  "indigo": $indigo,
+);
+
+:root {
+  --background-color: $emerald;
+  --danger: $rose;
+  --remed: $sky;
+  --primarydanger: $Cyan;
+  --subject: $indigo;
+}

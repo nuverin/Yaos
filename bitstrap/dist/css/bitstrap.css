@@ -1,0 +1,61 @@
+:root {
+  --background-color: $emerald;
+  --danger: $rose;
+  --remed: $sky;
+  --primarydanger: $Cyan;
+  --subject: $indigo;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: #22c55e;
+  color: var(--subject);
+}
+
+h1 {
+  font-weight: 400;
+  line-height: normal;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto 0 auto;
+}
+@media (min-width: 56.25em) {
+  .grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.grid-row, .grid-col {
+  padding: 55px;
+}
+.grid-row {
+  background-color: #be123c;
+}
+@media (max-width: 56.242022em) {
+  .grid-row {
+    background-color: #a21caf;
+  }
+}
+.grid-col {
+  background-color: #4338ca;
+}
+
+/*# sourceMappingURL=bitstrap.css.map */
