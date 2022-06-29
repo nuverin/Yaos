@@ -1,0 +1,11 @@
+@each $property, $map in $utilities {
+  $class: map-get($map, "class");
+  $values: map-get($map, "values");
+  @each $c, $v in $values {
+    @if ($c == "default") {
+      #{$class} {
+        #{$property}: $v;
+      }
+    }
+  }
+}
