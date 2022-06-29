@@ -1,0 +1,18 @@
+@use "api" as *;
+// function maps
+@each $map1, $map2 in $util {
+  $class: map-get($map2, "class");
+  $atrit: map-get($map2, "property");
+  $values: map-get($map2, "values");
+  @each $v1, $v2 in $values {
+    @if ($v1 == "default") {
+      .#{$class} {
+        #{$map1}: $v2;
+      }
+    } @else {
+      .#{$class}-#{$v1} {
+        #{$atrit}: $v2;
+      }
+    }
+  }
+}
