@@ -1,0 +1,9 @@
+@use "color" as *;
+
+:root {
+  @each $property, $maps in $colors {
+    @each $key, $values in $maps {
+      --color--#{$property}#{$key}: #{$values};
+    }
+  }
+}

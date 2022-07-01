@@ -1,0 +1,27 @@
+@use "api" as *;
+@use "variable" as *;
+@use "color" as *;
+// function maps
+@each $property, $maps in $util {
+  $values: map-get($maps, values);
+  $prop: map-get($maps, property);
+
+  @each $key, $value in $values {
+    $properts: if(
+      map-has-key($maps, class),
+      map-get($maps, class),
+      nth($prop, null)
+    );
+    @if type-of($key) == "string" {
+      .#{$properts} {
+        #{$prop}: $value;
+      }
+    } @else {
+      .#{$properts}-#{$key} {
+        @each $va in $prop {
+          #{$va}: $value;
+        }
+      }
+    }
+  }
+}

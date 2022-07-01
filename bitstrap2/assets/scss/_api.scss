@@ -1,0 +1,41 @@
+@use "variable" as *;
+
+$util: () !default;
+$util: (
+  "spacing": (
+    class: p,
+    responsive: true,
+    property: padding,
+    values:
+      map-merge(
+        $spacing,
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "margin": (
+    class: m,
+    reponsive: true,
+    property: margin,
+    values:
+      map-merge(
+        $spacing,
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "margin-start": (
+    class: mx,
+    responsive: true,
+    property: margin-left margin-right,
+    values:
+      map-merge(
+        $spacing,
+        (
+          auto: auto,
+        )
+      ),
+  ),
+);

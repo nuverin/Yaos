@@ -1,0 +1,17 @@
+$spaciner: 1rem;
+$spacing: (
+  0: 0,
+  1: $spaciner * 2,
+  2: $spaciner * 4,
+  3: $spaciner * 6,
+  4: $spaciner * 8,
+  5: $spaciner * 10,
+) !default;
+$breakpointsm: (
+  small: 340px,
+  medium: 540px,
+  large: 960px,
+  xllarge: 1200px,
+);
+$variable-prefix: st- !default;
+$prefix: $variable-prefix;
