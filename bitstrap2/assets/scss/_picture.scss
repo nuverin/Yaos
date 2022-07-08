@@ -1,0 +1,17 @@
+@for $loop from 1 through 2 {
+  @if $loop == 2 {
+    img[data-type="img#{$loop}"] {
+      width: 30px;
+    }
+  }
+}
+.picture-8 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: stretch;
+  grid-gap: 1.5rem;
+  & img[data-picture="oit1"] {
+    width: 90%;
+    cursor: pointer;
+  }
+}

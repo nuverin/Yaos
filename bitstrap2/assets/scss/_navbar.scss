@@ -1,0 +1,54 @@
+@use "color" as *;
+@use "boxshadow" as *;
+@use "variable" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  %container-flex-properties {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.navbar-header {
+  padding-top: var(--#{$prefix}navbar-brand-padding-y);
+  padding-bottom: var(--#{$prefix}navbar-brand-padding-x);
+  display: flex;
+  white-space: nowrap;
+  font-size: 1.5rem;
+
+  &:hover,
+  &:focus {
+    color: var(--#{$prefix}-white-100);
+  }
+}
+.navigatmenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  list-style-type: none;
+  .navlink {
+    color: var(--#{$prefix}-dark-100);
+    margin: auto 0.9rem;
+    cursor: pointer;
+    @for $i from 1 through 6 {
+      @if $i != 0 {
+        &[data-type="click#{$i}"]:hover {
+          background-color: #2e2e;
+          @debug "will print the values of the variable";
+        }
+      } @else {
+        @error "Tidak Boleh kurang dari 1";
+      }
+    }
+  }
+}

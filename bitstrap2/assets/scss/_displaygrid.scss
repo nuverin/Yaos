@@ -1,0 +1,65 @@
+@use "variable" as *;
+@use "function" as *;
+@mixin display() {
+}
+.insection,
+.incontent {
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.d-grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+.d-grid-2 {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  img {
+    grid-gap: 52px;
+  }
+}
+.col {
+  display: flex;
+  justify-content: flex-start;
+  flex: 3;
+  margin-top: 2rem;
+}
+.h3sl {
+  margin-left: 2rem;
+  font-size: 2.1rem;
+}
+.center-edit-4 {
+  text-align: center;
+  padding-top: 10%;
+  h5[data-class="h5"] {
+    font-size: 2rem;
+    line-height: 1.2em;
+  }
+}
+.form-control-1 {
+  margin-top: 2rem;
+
+  .text-1 {
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 2rem;
+    position: relative;
+    right: 6%;
+    line-height: 1.5rem;
+  }
+  input[data-input="loer1"],
+  [data-input="loer2"] {
+    color: #2e2e2e;
+    padding: 0.4rem 0.4rem;
+  }
+}
+#section2 {
+  margin-top: 10rem;
+}
+.d-flex {
+  display: flex;
+}

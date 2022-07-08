@@ -1,6 +1,7 @@
 @use "api" as *;
 @use "variable" as *;
 @use "color" as *;
+@use "sass:math";
 // function maps
 @each $property, $maps in $util {
   $values: map-get($maps, values);
@@ -12,7 +13,7 @@
       map-get($maps, class),
       nth($prop, null)
     );
-    @if type-of($key) == "string" {
+    @if type-of($key) == "default" {
       .#{$properts} {
         #{$prop}: $value;
       }
@@ -24,4 +25,9 @@
       }
     }
   }
+}
+// base-size
+@function Rem($value) {
+  $remvalue: math.div($value, 16) + rem;
+  @return $remvalue;
 }

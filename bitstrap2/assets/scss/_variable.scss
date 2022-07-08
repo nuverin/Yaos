@@ -1,17 +1,53 @@
-$spaciner: 1rem;
+// spacing
+$spaciner: 1rem !default;
 $spacing: (
   0: 0,
-  1: $spaciner * 2,
-  2: $spaciner * 4,
-  3: $spaciner * 6,
-  4: $spaciner * 8,
-  5: $spaciner * 10,
+  1: $spaciner * 0.025,
+  2: $spaciner * 0.5,
+  3: $spaciner + 0.1,
+  4: $spaciner * 3,
+  5: $spaciner * 4,
 ) !default;
-$breakpointsm: (
-  small: 340px,
-  medium: 540px,
-  large: 960px,
-  xllarge: 1200px,
+$font-size: clamp(0.9rem, 1.3rem, 1.5rem) !default;
+$width: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+) !default;
+$border-width: 1px !default;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
 );
+// border styling
+$border-style: solid !default;
+$border-color: hsl(0, 20%, 1%) !default;
 $variable-prefix: st- !default;
 $prefix: $variable-prefix;
+// container padding
+$container-padding-x: 1.5rem !default;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+$breakpoint-size: (
+  xs: 340px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+// navbar variable
+$navbar-padding-y: $spaciner * 0.5 !default;
+$navbar-padding-x: 0.8rem !default;
+$enable-container-class: true !default;
+$padding-navbar: 1em !default;
+$border-bottom: 2px solid #feb543;
+$bg-image: url("image/big-city.png");
+$max-width-bg: 1400px;

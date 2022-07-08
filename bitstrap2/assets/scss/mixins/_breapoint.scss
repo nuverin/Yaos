@@ -1,7 +1,49 @@
 @use "../variable" as *;
-@mixin mq($media) {
-  $size: map-get($breakpointsm, $key);
-  @media only screen and (min-width: $size) {
+@use "../style" as *;
+
+@function breakpoint-min($size, $breakpoints: $breakpoint-size) {
+  $min: map-get($breakpoints, $size);
+  @return if($min != 0, $min, null);
+}
+@function break-infix($name, $breal: $breakpoint-size) {
+  @return if(breakpoint-min($name, $breal) == null, "", "-#{$name}");
+}
+@mixin breakpoint-up($size, $breakpoint: $breakpoint-size) {
+  $min: breakpoint-min($size, $breakpoint);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
     @content;
+  }
+}
+@if $enable-container-class {
+  .container,
+  .container-fluid {
+    @include container();
+  }
+  @each $break, $container-max in $container-max-widths {
+    .container-#{$break} {
+      @extend .container-fluid;
+    }
+    @include breakpoint-up($break, $breakpoint-size) {
+      %responsive-container-#{$break} {
+        max-width: $container-max;
+      }
+
+      $extend-breakpoint: true;
+
+      @each $name, $width in $breakpoint-size {
+        @if ($extend-breakpoint) {
+          .container#{break-infix($name, $breakpoint-size)} {
+            @extend %responsive-container-#{$break};
+          }
+        }
+        @if ($break == $name) {
+          $extend-breakpoint: false;
+        }
+      }
+    }
   }
 }

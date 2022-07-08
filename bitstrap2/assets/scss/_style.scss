@@ -1,9 +1,81 @@
 @use "color" as *;
+@use "function" as to;
+@use "navbar" as *;
+@use "variable" as *;
+@use "button" as *;
+@use "navbar" as *;
+@mixin border() {
+  --#{$prefix}border-width: #{$border-width};
+  --#{$prefix}border-style: #{$border-style};
+  --#{$prefix}border-color: #{$border-color};
+}
 
+@mixin container($gutter: $container-padding-x) {
+  --#{$prefix}gutter-x: #{$gutter};
+  --#{$prefix}gutter-y: 0;
+  width: 100%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.bg-image {
+  background: $bg-image no-repeat;
+  width: 100%;
+  height: 100%;
+}
+// compile to css
 :root {
-  @each $property, $maps in $colors {
-    @each $key, $values in $maps {
-      --color--#{$property}#{$key}: #{$values};
+  $enable: true;
+  @each $atrit, $maps in $dark-theme {
+    @if type-of($atrit) != "number" {
+      @each $key, $values in $maps {
+        --#{$prefix}-#{$atrit}-#{$key}: #{$values};
+      }
+    }
+  }
+
+  @each $s, $map in $light-theme {
+    @if $enable {
+      @each $keye, $value in $map {
+        --#{$prefix}-#{$s}-#{$keye}: #{$value};
+      }
+    }
+  }
+  @include border();
+  --#{$prefix}navbar-padding-x: #{$navbar-padding-x};
+  --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
+}
+
+@each $atrit, $maps in $colors {
+  @each $key, $value in $maps {
+    @for $i from 1 through 1 {
+      .background-#{$key} {
+        background-color: #{$value};
+      }
+      .text-#{$key} {
+        color: #{$value};
+      }
     }
   }
 }
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+  color: var(--#{$prefix}-white-100);
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  position: relative;
+  max-width: $max-width-bg;
+  height: 100vh;
+}
+// import font family
+.header {
+  text-align: center;
+}
+
+// button outline green

@@ -1,10 +1,29 @@
+@use "variable" as *;
+$colors: () !default;
 $colors: (
-  primary: (
-    100: hsl(0, 100%, 60%),
-    200: hsl(0, 90%, 59%),
-  ),
-  secondary: (
-    100: red,
-    200: blue,
+  "warna": (
+    "tean": #0e6655,
+    "purple": #8e44ad,
+    "muda": #daf7a6,
+    "yellow": #ffc300,
+    "jingga": #ff5733,
+    "red": #c70039,
+    "white": #ffff,
+    "dark": #2e2e2e,
   ),
 );
+// active color theme
+$light-theme: (
+  "white": (
+    100: #ffff,
+  ),
+  "emerald": (
+    100: #10b981,
+  ),
+);
+$dark-theme: (
+  "dark": (
+    100: #2e2e2e,
+  ),
+);
+$primry: var(--#{$prefix}--primary);
